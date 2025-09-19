@@ -51,19 +51,25 @@ int main(){
     }
     //mes turim viena studenta. mums reikia kazkokio ciklo, kad butu daugiau studentu. sugalvoti kaip suvesti, ka padaryti.
     studentas stud_iv(){
-        int n, laik_paz, sum=0;
+        int n=0, laik_paz, sum=0;
         cout<<"Sveiki"<<endl;
         studentas pirmas;
         cout<<"Ivesk studento duomenis"<<endl;
         cout<<"Vardas: "; cin>>pirmas.vardas;
         cout<<"Pavarde: "; cin>>pirmas.pavarde;
-        cout<<"Kiek pazymiu turi " <<pirmas.vardas<<" "<<pirmas.pavarde<<" "; cin>>n;
-        for (int a=0;a<n;a++)
+        //cout<<"Kiek pazymiu turi " <<pirmas.vardas<<" "<<pirmas.pavarde<<" "; cin>>n;
+        //for (int a=0;a<n;a++)
+        int skaitliukas = 1;
+        while(skaitliukas!=0)
         {
-            cout<<a+1<<": "; cin >>laik_paz;
+            cout<<"Iveskite pazymi: "; cin >>laik_paz;
             pirmas.paz.push_back(laik_paz);
             sum+=laik_paz;  //alternatyva sum+=pirmas.paz[a]
+            n++;
+            cout<<"Jei daugiau pazymiu studentas neturi, iveskite 0. Kitu atveju iveskite bet koki skaiciu."<<endl;
+            cin>>skaitliukas;
         }
+        cout<<"Paz suma "<<sum<<endl;
         cout<<"Iveskite egzamino paz: "; cin>>pirmas.egzaminas;
         pirmas.gal_rezultatas= double(sum)/double(n) * 0.4 + pirmas.egzaminas * 0.6; //kazkodel reikia parasyti double
 
